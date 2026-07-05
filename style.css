@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    width: 20%;
+    height: 3em;
+    box-shadow: 3px 3px 5px;
+    float: left;
+    margin: 10px;
+}
+
+/* #container {
+    align-content: center;
+} */
+
+#box1 {
+    background-color: #25bce2;
+}
+
+#box2 {
+    background-color: #34e756;
+}
+
+#box3 {
+    background-color: #df4a4a;
+}
+
+#box4 {
+    background-color: #f2e84a;
+}
+
+#p1 {
+    padding: 5px;
+}
