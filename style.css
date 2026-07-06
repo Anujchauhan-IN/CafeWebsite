@@ -1,16 +1,52 @@
+:root {
+    --primary-color: #6f4e37;
+    --primary-dark: #3b241c;
+
+    --background-light: #f8f5f2;
+    --background-white: #ffffff;
+
+    --text-dark: #2b2b2b;
+    --text-light: #666666;
+
+    --shadow: rgba(0, 0, 0, 0.08);
+    --primary-light: #8b5e3c;
+    --primary-darkest: #2b1a14;
+
+    --overlay: rgba(0, 0, 0, 0.45);
+
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    --shadow-active: rgba(0, 0, 0, 0.15);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", sans-serif;
+    color: var(--text-dark);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
 }
 
 header {
-    background-color: #3e2723;
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--background-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hero-content {
+    max-width: 550px;
 }
 
 nav {
@@ -33,7 +69,18 @@ nav h1 {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: var(--background-white);
+    padding: 8px 14px;
+    border-radius: 6px;
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+nav a:active {
+    background-color: var(--primary-color);
 }
 
 .hero p {
@@ -41,7 +88,7 @@ nav a {
     max-width: 500px;
     line-height: 1.6;
     margin-bottom: 40px;
-    color: white;
+    color: var(--background-white);
 }
 
 .hero {
@@ -54,7 +101,7 @@ nav a {
     align-items: flex-start;
 
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        linear-gradient(var(--overlay), var(--overlay)),
         url("images/image1.jpg");
 
     background-size: cover;
@@ -62,15 +109,16 @@ nav a {
 }
 
 .hero h2 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: white;
+    font-size: 4.2rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--background-white);
 }
 
 .btn {
     text-decoration: none;
-    background-color: #6f4e37;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--background-white);
     padding: 15px 30px;
     border-radius: 8px;
     display: inline-block;
@@ -81,14 +129,13 @@ nav a {
 }
 
 .btn:active {
-    background-color: #8b5e3c;
-    background-color: #8b5e3c;
+    background-color: var(--primary-light);
     transform: scale(1.05);
 }
 
 .specialties {
     padding: 80px;
-    background-color: #f8f5f2;
+    background-color: var(--background-light);
 }
 
 .specialties h2 {
@@ -105,27 +152,31 @@ nav a {
     gap: 30px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .card {
-    background-color: white;
+    background-color: var(--background-white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px var(--shadow-dark);
     cursor: pointer;
     min-height: 180px;
     text-align: center;
     transition:
-        transform 03s,
-        box-shadow 03s;
+        transform 0.3s,
+        box-shadow 0.3s;
 }
 
 .card h3 {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #3b241c;
+    color: var(--primary-dark);
 }
 
 .card p {
-    color: #666;
+    color: var(--text-light);
     line-height: 1.7;
 }
 
@@ -135,7 +186,56 @@ nav a {
 }
 
 .card:active {
-    transform: translateY(-20px);
+    transform: translateY(-8px);
 
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 16px 30px var(--shadow-active);
+}
+
+.cta {
+    background-color: var(--primary-dark);
+    color: var(--background-white);
+    padding: 80px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+footer {
+    background-color: var(--primary-darkest);
+    color: var(--background-white);
+    text-align: center;
+    padding: 25px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero {
+        height: 500px;
+        padding: 40px;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }
